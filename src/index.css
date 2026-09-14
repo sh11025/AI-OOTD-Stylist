@@ -1,0 +1,549 @@
+/* 나눔스퀘어 네오 (NanumSquare Neo) 가중치별 웹폰트 통합 정의 */
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo';
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquareNeoVariable';
+  font-style: normal;
+  font-display: swap;
+  src: url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff') format('woff'),
+       url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf') format('truetype');
+}
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@layer base {
+  :root {
+    /* 전역 기본 폰트 */
+    --font-base: 'NanumSquareNeo', 'NanumSquareNeoVariable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* 전역 와일드카드 폰트 상속 강제 */
+  *, *::before, *::after {
+    font-family: var(--font-base);
+  }
+
+  html, body {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(127, 168, 220, 0.2);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    background-color: #EAF1FB;
+    color: #3A4A63;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  html.dark, html.dark body {
+    background-color: #17212F !important;
+    color: #E4EBF5 !important;
+  }
+
+  body {
+    font-size: 14px;
+    word-break: keep-all;
+    line-break: strict;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #3A4A63;
+    font-weight: 400;
+  }
+
+  /* Headings Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    color: #20304A;
+  }
+  h1 { font-size: 20px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  h4, h5, h6 { font-size: 14px; }
+
+  p, span, label, button, a, li, dt, dd, input, textarea, select {
+    word-break: keep-all;
+    overflow-wrap: normal;
+    letter-spacing: -0.02em;
+  }
+
+  /* 컨트롤 인터랙션 터치 반응 */
+  button:active, a:active, [role="button"]:active {
+    transform: scale(0.98);
+    transition: transform 0.08s ease-in-out;
+  }
+}
+
+/* ========================================================
+   공통 UI 시맨틱 컴포넌트 클래스 (초장문 className 단축용)
+   ======================================================== */
+
+/* 버튼 컴포넌트 (스카이 미스트 단일 CTA) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 40px;
+  padding: 0.4rem 1rem;
+  background-color: #B7C9E6;
+  color: #20304A;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  border: 1px solid #A5BBE0;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px 0 rgba(32, 48, 74, 0.08);
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+.btn-primary:hover {
+  background-color: #A5BBE0;
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 38px;
+  padding: 0.375rem 0.875rem;
+  background-color: #FFFFFF;
+  color: #3A4A63;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  border: 1px solid #C9DDF5;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px 0 rgba(32, 48, 74, 0.04);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+}
+.btn-secondary:hover {
+  background-color: #F4F7FC;
+  border-color: #B7D2F0;
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+html.dark .btn-secondary {
+  background-color: #26313F !important;
+  color: #E4EBF5 !important;
+  border-color: #2E3D50 !important;
+}
+html.dark .btn-secondary:hover {
+  background-color: #2E3D50 !important;
+  border-color: #7FA8DC !important;
+}
+
+/* 입력 필드 (Inputs) */
+.input-base {
+  width: 100%;
+  min-height: 38px;
+  padding: 0.375rem 0.75rem;
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  color: #212529;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input-base:focus {
+  outline: none;
+  border-color: #7FA8DC;
+  box-shadow: 0 0 0 1px #7FA8DC;
+}
+.input-base::placeholder {
+  color: #868E96;
+}
+html.dark .input-base {
+  background-color: #26313F !important;
+  border-color: #2E3D50 !important;
+  color: #E4EBF5 !important;
+}
+html.dark .input-base::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 뱃지 기본 베이스 */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  line-height: 1.4;
+}
+
+/* 스크롤바 미세 커스텀 (데스크톱 컴팩트 스크롤) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: #CED4DA;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ADB5BD;
+}
+
+/* 반응형 유연화 및 데스크톱 컨테이너 (창 전체 100% 뷰포트 활용) */
+.aspect-16-9-desktop-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+
+
+
+/* 스크롤바 숨김 유틸리티 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 모바일/네이티브 앱 감성의 부드러운 탭 전환 애니메이션 */
+@keyframes tabSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: tabSlideUp 0.2s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* 햅틱 터치/클릭 반응 강화 */
+button, a, [role="button"], .cursor-pointer {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+button:active, a:active, [role="button"]:active {
+  transform: scale(0.96) !important;
+}
+
+
+/* ========================================================
+   다크 모드 종합 오버라이드 시스템 (스카이 미스트 Sky Mist Dark Theme)
+   ======================================================== */
+
+/* 1. 기본 배경 및 앱 셸 다크화 */
+html.dark, 
+html.dark body {
+  background-color: #141B24 !important;
+  color: #E4EBF5 !important;
+}
+
+html.dark .aspect-16-9-desktop-container {
+  background-color: #141B24 !important;
+}
+
+/* 2. 메인 카드 패널 및 컨테이너 배경 (Card: White -> Dark Slate #202B38) */
+html.dark .bg-white {
+  background-color: #202B38 !important;
+  border-color: #2E3D50 !important;
+  color: #E4EBF5 !important;
+}
+
+/* 3. 보조 서피스 박스 (Sub background: Slate #26313F) */
+html.dark [class*="bg-[#F8F9FA]"],
+html.dark [class*="bg-[#FBF9F5]"],
+html.dark [class*="bg-[#FAF7F2]"],
+html.dark [class*="bg-[#FCFAF7]"],
+html.dark [class*="bg-[#FAF8F5]"],
+html.dark [class*="bg-[#FDFBF7]"],
+html.dark [class*="bg-[#F4F7FC]"],
+html.dark [class*="bg-[#FAF7F2]/40"],
+html.dark [class*="bg-[#FAF7F2]/60"],
+html.dark .bg-gray-50,
+html.dark .bg-gray-100 {
+  background-color: #26313F !important;
+  border-color: #334458 !important;
+  color: #E4EBF5 !important;
+}
+
+/* 4. 헤딩 및 본문 텍스트 색상 전역 고대비 전환 (Body Text: #E4EBF5) */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  color: #FFFFFF !important;
+}
+
+/* 어두운 메인 텍스트 전역 밝은 하늘색(#E4EBF5) 전환 */
+html.dark [class*="text-[#212529]"],
+html.dark [class*="text-[#2B2D42]"],
+html.dark [class*="text-[#3D405B]"],
+html.dark [class*="text-[#495057]"],
+html.dark [class*="text-[#3A4A63]"],
+html.dark [class*="text-[#20304A]"],
+html.dark [class*="text-gray-900"],
+html.dark [class*="text-gray-800"],
+html.dark [class*="text-gray-700"],
+html.dark [class*="text-gray-650"] {
+  color: #E4EBF5 !important;
+}
+
+/* 브라운/웜톤 텍스트도 스카이 톤으로 전환 */
+html.dark [class*="text-[#4A3F35]"],
+html.dark [class*="text-[#3E332E]"] {
+  color: #D6E3F4 !important;
+}
+
+/* 중간 회색 및 보조 텍스트 고대비 보정 */
+html.dark [class*="text-gray-600"],
+html.dark [class*="text-gray-550"] {
+  color: #CBD9EC !important;
+}
+
+html.dark [class*="text-gray-500"],
+html.dark [class*="text-[#868E96]"] {
+  color: #A8BCD4 !important;
+}
+
+html.dark [class*="text-gray-400"],
+html.dark [class*="text-stone-400"] {
+  color: #8CA4C2 !important;
+}
+
+/* 5. 선택 강조 색상 (#7FA8DC) - 다크 모드에서도 동일 유지 */
+html.dark .bg-\[\#7FA8DC\],
+html.dark [class*="bg-[#7FA8DC]"] {
+  background-color: #7FA8DC !important;
+  color: #FFFFFF !important;
+}
+html.dark .text-\[\#7FA8DC\],
+html.dark [class*="text-[#7FA8DC]"] {
+  color: #7FA8DC !important;
+}
+
+/* 6. CTA 핵심 버튼 (딥 스카이 #B7C9E6, 텍스트 #141B24) - 다크 모드에서도 동일 유지 */
+html.dark .btn-primary,
+html.dark [class*="bg-[#B7C9E6]"] {
+  background-color: #B7C9E6 !important;
+  color: #141B24 !important;
+  border-color: #9DBAE0 !important;
+}
+
+/* 7. 유채색 텍스트 & 아이콘 고명도 보정 */
+html.dark [class*="text-amber-"] { color: #FCD34D !important; }
+html.dark [class*="text-teal-"] { color: #5EEAD4 !important; }
+html.dark [class*="text-indigo-"] { color: #A5B4FC !important; }
+html.dark [class*="text-blue-"] { color: #93C5FD !important; }
+html.dark [class*="text-sky-"] { color: #7FA8DC !important; }
+html.dark [class*="text-emerald-"], html.dark [class*="text-green-"] { color: #6EE7B7 !important; }
+html.dark [class*="text-purple-"] { color: #C4B5FD !important; }
+html.dark [class*="text-red-"], html.dark [class*="text-rose-"] { color: #FCA5A5 !important; }
+
+/* 8. Lucide SVG 아이콘 색상 및 stroke 다크 모드 동기화 */
+html.dark svg[class*="text-[#3E332E]"],
+html.dark svg[class*="text-[#3D405B]"],
+html.dark svg[class*="text-[#2B2D42]"],
+html.dark svg[class*="text-[#212529]"],
+html.dark svg[class*="text-[#4A3F35]"],
+html.dark svg[class*="text-[#20304A]"],
+html.dark svg[class*="text-[#3A4A63]"],
+html.dark svg[class*="text-gray-9"],
+html.dark svg[class*="text-gray-8"],
+html.dark svg[class*="text-gray-7"] {
+  color: #7FA8DC !important;
+  stroke: #7FA8DC !important;
+}
+html.dark svg[class*="text-teal-"] { color: #5EEAD4 !important; stroke: #5EEAD4 !important; }
+html.dark svg[class*="text-indigo-"] { color: #A5B4FC !important; stroke: #A5B4FC !important; }
+html.dark svg[class*="text-blue-"] { color: #93C5FD !important; stroke: #93C5FD !important; }
+html.dark svg[class*="text-emerald-"], html.dark svg[class*="text-green-"] { color: #6EE7B7 !important; stroke: #6EE7B7 !important; }
+html.dark svg[class*="text-amber-"] { color: #FCD34D !important; stroke: #FCD34D !important; }
+html.dark svg[class*="text-red-"], html.dark svg[class*="text-rose-"] { color: #FCA5A5 !important; stroke: #FCA5A5 !important; }
+
+/* 9. 일반 텍스트 태그 및 폼 라벨 상속 강화 */
+html.dark label,
+html.dark dt,
+html.dark dd {
+  color: #E4EBF5;
+}
+
+/* 10. 테두리 (Border: #2E3D50) */
+html.dark [class*="border-[#E9ECEF]"],
+html.dark [class*="border-[#3D405B]/10"],
+html.dark [class*="border-[#3D405B]/15"],
+html.dark [class*="border-[#3D405B]/20"],
+html.dark [class*="border-[#3E332E]/10"],
+html.dark [class*="border-[#3E332E]/15"],
+html.dark [class*="border-[#3E332E]/20"],
+html.dark [class*="border-[#4A3F35]/10"],
+html.dark [class*="border-[#4A3F35]/15"],
+html.dark [class*="border-[#4A3F35]/20"],
+html.dark [class*="border-[#CED4DA]"],
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: #2E3D50 !important;
+}
+
+/* 11. 인풋, 셀렉트, 텍스트에리어 및 옵션 (Sub background: #26313F) */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),
+html.dark select,
+html.dark textarea,
+html.dark .input-base {
+  background-color: #26313F !important;
+  color: #E4EBF5 !important;
+  border-color: #334458 !important;
+}
+
+html.dark option {
+  background-color: #202B38 !important;
+  color: #E4EBF5 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #8CA4C2 !important;
+}
+
+/* 12. 보조 버튼 및 호버 팝업 다크 스타일 */
+html.dark .btn-secondary {
+  background-color: #26313F !important;
+  color: #E4EBF5 !important;
+  border-color: #334458 !important;
+}
+html.dark .btn-secondary:hover {
+  background-color: #2E3D50 !important;
+}
+
+html.dark .bg-white\/95 {
+  background-color: rgba(32, 43, 56, 0.95) !important;
+  color: #E4EBF5 !important;
+}
+
+/* 13. 모달 백드롭 및 내부 박스 다크화 */
+html.dark .fixed.bg-black\/60 {
+  background-color: rgba(10, 14, 20, 0.8) !important;
+}
+
+/* 14. 다크 모드 스크롤바 */
+html.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334458;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #41556E;
+}
+
+/* 15. 다크 모드 컬러 배지 및 알림 박스 */
+html.dark .bg-emerald-50, 
+html.dark [class*="bg-emerald-50"],
+html.dark .bg-emerald-100, 
+html.dark [class*="bg-emerald-100"] {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #6EE7B7 !important;
+}
+html.dark .bg-amber-50, 
+html.dark [class*="bg-amber-50"],
+html.dark .bg-amber-100, 
+html.dark [class*="bg-amber-100"] {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #FCD34D !important;
+}
+html.dark .bg-blue-50, 
+html.dark [class*="bg-blue-50"],
+html.dark .bg-blue-100, 
+html.dark [class*="bg-blue-100"] {
+  background-color: rgba(127, 168, 220, 0.15) !important;
+  border-color: rgba(127, 168, 220, 0.35) !important;
+  color: #7FA8DC !important;
+}
+html.dark .bg-red-50, 
+html.dark [class*="bg-red-50"],
+html.dark .bg-red-100, 
+html.dark [class*="bg-red-100"] {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: #FCA5A5 !important;
+}
+html.dark .bg-purple-50, 
+html.dark [class*="bg-purple-50"],
+html.dark .bg-purple-100, 
+html.dark [class*="bg-purple-100"] {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  border-color: rgba(168, 85, 247, 0.35) !important;
+  color: #C4B5FD !important;
+}
+
+
+

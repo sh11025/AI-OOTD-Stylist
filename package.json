@@ -1,0 +1,57 @@
+{
+  "name": "ai-ootd-stylist",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "icon": "node scripts/generate-icon.js",
+    "build:client": "vite build",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=cjs --define:process.env.NODE_ENV='\"production\"' --external:vite --outfile=dist/server.cjs",
+    "build": "npm run icon && npm run build:client && npm run build:server",
+    "package:base": "node scripts/patch-pkg-base.js",
+    "package:binary": "pkg package.json --targets node18-win-x64 --build --output dist/AI_OOTD_Stylist.exe",
+    "package": "npm run build && npm run package:base && npm run package:binary",
+    "start": "node dist/server.cjs",
+    "preview": "vite preview",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue\"",
+    "lint": "tsc --noEmit"
+  },
+  "bin": "dist/server.cjs",
+  "pkg": {
+    "scripts": [
+      "dist/*.cjs"
+    ],
+    "assets": [
+      "dist/client/**/*"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "pkg": "^5.8.1",
+    "png-to-ico": "^3.0.2",
+    "resedit": "^3.1.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  }
+}
